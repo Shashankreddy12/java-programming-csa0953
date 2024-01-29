@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class PerfectNumberChecker {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int factorsSum = 0;
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) {
+                factorsSum = factorsSum + i;
+            }
+        }
+        if (n == factorsSum) {
+            System.out.print("It's a perfect number");
+        } else {
+            System.out.print("It's not a perfect number");
+        }
+        input.close();
+    }
+}
