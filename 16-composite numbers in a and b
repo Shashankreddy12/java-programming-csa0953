@@ -1,27 +1,26 @@
 import java.util.Scanner;
-public class CompositeNumbersBetweenAB {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter two integers (a and b):");
-        int a = input.nextInt();
-        int b = input.nextInt();
-        System.out.println("Composite numbers between " + a + " and " + b +);
-        for (int i = a + 1; i <= b; i++) {
-            int divisorCount = countDivisors(i);
-            if (divisorCount > 2) {
-                System.out.print(i + " ");
-            }
-        }
-        input.close();
+public class CompositeNumberChecker {
+  static boolean isComposite(int num) {
+    if (num <= 1) {
+      return false;
     }
-    private static int countDivisors(int num) {
-        int count = 0;
+    for (int i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i == 0) {
+        return true;
+      }
+    }
 
-        for (int j = 1; j <= num; j++) {
-            if (num % j == 0) {
-                count++;
-            }
-        }
-        return count;
-   }
+    return false; 
+}
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    int number = 12;
+    boolean result = isComposite(number);
+    if (result) {
+      System.out.println(number + " is a composite number.");
+    } else {
+      System.out.println(number + " is not a composite number.");
+    }
+    scanner.close();
+  }
 }
